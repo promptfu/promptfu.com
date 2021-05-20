@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Prompt Fu's RSS Feed]]></title><description><![CDATA[Tech tips and command line fu found within this dojo]]></description><link>https://promptfu.com</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 20 May 2021 02:50:50 GMT</lastBuildDate><item><title><![CDATA[chattr]]></title><description><![CDATA[Summary  is use to change file attributes on a Linux file system. The format of a symbolic mode is +-=acdeijstuADST. The operator ‘+’ causes…]]></description><link>https://promptfu.com/wiki/chattr/</link><guid isPermaLink="false">https://promptfu.com/wiki/chattr/</guid><content:encoded>&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;chattr&lt;/code&gt; is use to change file attributes on a Linux file system.&lt;/p&gt;
+&lt;p&gt;The format of a symbolic mode is +-=[acdeijstuADST].&lt;/p&gt;
+&lt;p&gt;The operator ‘+’ causes the selected attributes to be added to the existing attributes of the files; ‘-’ causes them
+to be removed; and ‘=’ causes them to be the only attributes that the files have.&lt;/p&gt;
+&lt;p&gt;The letters ‘acdeijstuADST’ select the new attributes for the files:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;append only (a)&lt;/li&gt;
+&lt;li&gt;compressed (c)&lt;/li&gt;
+&lt;li&gt;no dump (d)&lt;/li&gt;
+&lt;li&gt;extent format (e)&lt;/li&gt;
+&lt;li&gt;immutable (i)&lt;/li&gt;
+&lt;li&gt;data journalling (j)&lt;/li&gt;
+&lt;li&gt;secure deletion (s)&lt;/li&gt;
+&lt;li&gt;no tail-merging (t)&lt;/li&gt;
+&lt;li&gt;undeletable (u)&lt;/li&gt;
+&lt;li&gt;no atime updates (A)&lt;/li&gt;
+&lt;li&gt;synchronous directory updates (D)&lt;/li&gt;
+&lt;li&gt;synchronous updates (S)&lt;/li&gt;
+&lt;li&gt;top of directory hierarchy (T).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;usage&quot;&gt;Usage&lt;/h1&gt;
+&lt;h2 id=&quot;make-a-file-immutable&quot;&gt;Make a file immutable&lt;/h2&gt;
+&lt;p&gt;Making a file immutable means it cannot be changed.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ chattr +i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;filename&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;remove-file-immutable&quot;&gt;Remove file immutable&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ chattr -i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;filename&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[df]]></title><description><![CDATA[Summary The  command may be used to check disk space. Usage Examples Display the output of df command in human readable format The below…]]></description><link>https://promptfu.com/wiki/df/</link><guid isPermaLink="false">https://promptfu.com/wiki/df/</guid><content:encoded>&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;df&lt;/code&gt; command may be used to check disk space.&lt;/p&gt;
+&lt;h1 id=&quot;usage-examples&quot;&gt;Usage Examples&lt;/h1&gt;
+&lt;h2 id=&quot;display-the-output-of-df-command-in-human-readable-format&quot;&gt;Display the output of df command in human readable format&lt;/h2&gt;
+&lt;p&gt;The below command will print the sizes of a machine’s disks in human
+readable format (e.g. 1K, 234M, 2G)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# df -h&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;display-ouput-in-human-readable-format-for-local-storage-only-no-remote-storage-such-as-nfs&quot;&gt;Display ouput in human readable format for local storage only (no remote storage such as NFS)&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# df -h -l&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;display-inode-information-of-the-file-system&quot;&gt;Display inode information of the file system&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# df -i&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;find-the-top-20-inode-consumers-of-var&quot;&gt;Find the top 20 inode consumers (of var):&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# find /var -xdev -printf &amp;#39;%h\n&amp;#39; | sort | uniq -c | sort -k 1 -nr | head -n 20&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;list-disk-usage-of-all-the-file-systems-using--a&quot;&gt;List disk usage of all the file systems using ‘-a’&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# df -a&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;print-file-system-type-of-all-mounted-file-systems&quot;&gt;Print file system type of all mounted file systems&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# df -T&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;print-disk-usage-of-file-systems-in-block-size&quot;&gt;Print disk usage of file systems in block-size&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# df -k&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[lshw]]></title><description><![CDATA[Summary The command  is the list hardware command. The tool can be used to extract
+detailed information on the hardware configuration of the…]]></description><link>https://promptfu.com/wiki/lshw/</link><guid isPermaLink="false">https://promptfu.com/wiki/lshw/</guid><content:encoded>&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;The command &lt;code class=&quot;language-text&quot;&gt;lshw&lt;/code&gt; is the list hardware command. The tool can be used to extract
+detailed information on the hardware configuration of the machine. It can
+report on memory configuration, firmware version, and a lot more.&lt;/p&gt;
+&lt;h1 id=&quot;usage-examples&quot;&gt;Usage Examples&lt;/h1&gt;
+&lt;h2 id=&quot;query-system-for-network-interfaces&quot;&gt;Query System for Network Interfaces&lt;/h2&gt;
+&lt;p&gt;The below command will display a ‘short’ list of the hardware (less info) of
+the class, “-c”, net or network.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# lshw -short -c net&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Additional class that lshw could query are (to list a few):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;cpu&lt;/li&gt;
+&lt;li&gt;pci&lt;/li&gt;
+&lt;li&gt;bank&lt;/li&gt;
+&lt;li&gt;cache&lt;/li&gt;
+&lt;li&gt;disk&lt;/li&gt;
+&lt;li&gt;volume&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[lsof]]></title><description><![CDATA[Summary The command ‘lsof’ is used and short for list open files. Usage Examples List all network connections List all processes listening…]]></description><link>https://promptfu.com/wiki/lsof/</link><guid isPermaLink="false">https://promptfu.com/wiki/lsof/</guid><content:encoded>&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;The command ‘lsof’ is used and short for list open files.&lt;/p&gt;
+&lt;h1 id=&quot;usage-examples&quot;&gt;Usage Examples&lt;/h1&gt;
+&lt;h2 id=&quot;list-all-network-connections&quot;&gt;List all network connections&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# lsof -i&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;list-all-processes-listening-on-a-particular-port&quot;&gt;List all processes listening on a particular port&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# lsof -i :80
+COMMAND   PID   USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME
+httpd   37813   root    4u  IPv4 3609901      0t0  TCP *:http (LISTEN)
+httpd   37826 apache    4u  IPv4 3609901      0t0  TCP *:http (LISTEN)
+httpd   37827 apache    4u  IPv4 3609901      0t0  TCP *:http (LISTEN)
+httpd   37828 apache    4u  IPv4 3609901      0t0  TCP *:http (LISTEN)
+httpd   37829 apache    4u  IPv4 3609901      0t0  TCP *:http (LISTEN)
+httpd   37830 apache    4u  IPv4 3609901      0t0  TCP *:http (LISTEN)
+httpd   37831 apache    4u  IPv4 3609901      0t0  TCP *:http (LISTEN)
+httpd   37832 apache    4u  IPv4 3609901      0t0  TCP *:http (LISTEN)
+httpd   37833 apache    4u  IPv4 3609901      0t0  TCP *:http (LISTEN)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;list-all-tcp-or-udp-connections&quot;&gt;List all TCP or UDP connections&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt; # lsof -i tcp
+ # lsof -i udp&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;list-all-ipv4-or-ipv6-network-files&quot;&gt;List all IPv4 or IPv6 network files&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# lsof -i 4
+# lsof -i 6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;list-all-network-files-using-tcp-port-ranges-from-1-1024&quot;&gt;List all network files using TCP port ranges from 1-1024&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# lsof -i TCP:1-1024&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;list-all-network-files-in-use-by-a-specific-process&quot;&gt;List all network files in use by a specific process&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# lsof -i  -a -p &amp;lt;pid&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;list-active-connections&quot;&gt;List active connections&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# lsof -LnPTqs
+# lsof -LnPTqs | grep -i 10.100&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;list-reads-and-writes-of-a-directory&quot;&gt;List reads and writes of a directory&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# lsof &amp;lt;path&amp;gt; | grep -e &amp;quot;[[:digit:]]\+r\|[[:digit:]]\+w&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;list-nfs-files&quot;&gt;List NFS files&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# lsof -N&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id=&quot;sysctl-help&quot;&gt;Sysctl Help&lt;/h1&gt;
+&lt;h2 id=&quot;list-count-of-file-descriptors-in-kernel-memory&quot;&gt;List count of file descriptors in kernel memory&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# sysctl fs.file-nr
+fs.file-nr = 26360	0	16401474&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id=&quot;scenario-based-examples&quot;&gt;Scenario Based Examples&lt;/h1&gt;
+&lt;h2 id=&quot;process-holding-open-deleted-files&quot;&gt;Process holding open (deleted) files&lt;/h2&gt;
+&lt;p&gt;A process may be unable to write to a given directory and may state there is no space left on the
+device, but the ouput of &lt;a href=&quot;/wiki/df/&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;df&lt;/code&gt;&lt;/a&gt; shows there is plenty of space left. In this scenario,
+it may be likely that the process is holding a lock on file(s) that have been ‘deleted’, and &lt;code class=&quot;language-text&quot;&gt;lsof&lt;/code&gt;
+can help determine if that is the case.&lt;/p&gt;
+&lt;p&gt;Reviewing the output of the lsof command, take note of lines with ‘(deleted)’ in them. The ‘(deleted)’
+string means the file has been deleted, but it could not be removed because it is locked by a running
+process. To resolve this issue, the process holding the files opened would need to be stopped to
+release the file locks, freeing up disk space.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;BONUS&lt;/strong&gt;
+If in a bind and the process cannot be stopped, it is possible to track down file descriptor(s)
+in &lt;code class=&quot;language-text&quot;&gt;/proc/&amp;lt;pid&amp;gt;/fd/&lt;/code&gt; and zero the ‘deleted’ file. That process may look something like the below:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# &amp;gt; /proc/&amp;lt;pid&amp;gt;/fd/4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Referenced commands:&lt;/em&gt; &lt;a href=&quot;/wiki/df&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;df&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[putty]]></title><description><![CDATA[Export Putty Registry Settings This includes settings for putty and any session information: Color Scheme Default Foreground: 255/255/25…]]></description><link>https://promptfu.com/wiki/putty/</link><guid isPermaLink="false">https://promptfu.com/wiki/putty/</guid><content:encoded>&lt;h1 id=&quot;export-putty-registry-settings&quot;&gt;Export Putty Registry Settings&lt;/h1&gt;
+&lt;p&gt;This includes settings for putty and any session information:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;regedit /e &amp;quot;%userprofile%\Desktop\putty.reg&amp;quot; HKEY_CURRENT_USER\Software\SimonTatham&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id=&quot;color-scheme&quot;&gt;Color Scheme&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Default Foreground: 255/255/255&lt;/li&gt;
+&lt;li&gt;Default Background: 51/51/51&lt;/li&gt;
+&lt;li&gt;ANSI Black: 77/77/77&lt;/li&gt;
+&lt;li&gt;ANSI Green: 152/251/152&lt;/li&gt;
+&lt;li&gt;ANSI Yellow: 240/230/140&lt;/li&gt;
+&lt;li&gt;ANSI Blue: 205/133/63&lt;/li&gt;
+&lt;li&gt;ANSI Blue Bold 135/206/235&lt;/li&gt;
+&lt;li&gt;ANSI Magenta: 255/222/173 or 205/92/92&lt;/li&gt;
+&lt;li&gt;ANSI Cyan: 255/160/160&lt;/li&gt;
+&lt;li&gt;ANSI Cyan Bold: 255/215/0&lt;/li&gt;
+&lt;li&gt;ANSI White: 245/222/179&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[quota]]></title><description><![CDATA[Summary The quota command is used to view what quotas a given file system has set. Usage View all quotas:]]></description><link>https://promptfu.com/wiki/quota/</link><guid isPermaLink="false">https://promptfu.com/wiki/quota/</guid><content:encoded>&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;The quota command is used to view what quotas a given file system has set.&lt;/p&gt;
+&lt;h1 id=&quot;usage&quot;&gt;Usage&lt;/h1&gt;
+&lt;p&gt;View all quotas:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;$ quota
+Disk quotas for user hasselm (uid 39581):
+     Filesystem  blocks   quota   limit   grace   files   quota   limit   grace
+uschi12nfs01.matthassel.com:/uschi12nfs01_home0/home0/hasselm
+                2605130       0 41943040           14680       0       0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Raspberry Pi I2C Setup]]></title><description><![CDATA[The following packages need to be installed: Make sure i2c-dev and i2c-bcm2708 are added to /etc/modules file; check  for these modules…]]></description><link>https://promptfu.com/wiki/raspiberrypi-i2c-setup/</link><guid isPermaLink="false">https://promptfu.com/wiki/raspiberrypi-i2c-setup/</guid><content:encoded>&lt;p&gt;The following packages need to be installed:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; python-smbus
+$ &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; i2c-tools&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Make sure i2c-dev and i2c-bcm2708 are added to /etc/modules file; check &lt;code class=&quot;language-text&quot;&gt;lsmod&lt;/code&gt; for these modules.&lt;/p&gt;
+&lt;p&gt;Then run the following command:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;root@raspberrypi:~&lt;span class=&quot;token comment&quot;&gt;# i2cdetect -y 1&lt;/span&gt;
+&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;7&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;9&lt;/span&gt; a b c d e f
+00: -- -- -- -- -- -- -- -- -- -- -- -- --
+&lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+&lt;span class=&quot;token number&quot;&gt;20&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+&lt;span class=&quot;token number&quot;&gt;30&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+&lt;span class=&quot;token number&quot;&gt;40&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+&lt;span class=&quot;token number&quot;&gt;50&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+&lt;span class=&quot;token number&quot;&gt;60&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+&lt;span class=&quot;token number&quot;&gt;70&lt;/span&gt;: &lt;span class=&quot;token number&quot;&gt;70&lt;/span&gt; -- -- -- -- -- -- --&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;**NOTE: If the above output is not observed, try &lt;code class=&quot;language-text&quot;&gt;modprobe i2c-dev&lt;/code&gt; to make sure the module is enabled.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[rpm]]></title><description><![CDATA[Summary The rpm command is used to install/uninstall package. Usage Test install rpm package At times you want to perform a test run of a…]]></description><link>https://promptfu.com/wiki/rpm/</link><guid isPermaLink="false">https://promptfu.com/wiki/rpm/</guid><content:encoded>&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;The rpm command is used to install/uninstall package.&lt;/p&gt;
+&lt;h1 id=&quot;usage&quot;&gt;Usage&lt;/h1&gt;
+&lt;h2 id=&quot;test-install-rpm-package&quot;&gt;Test install rpm package&lt;/h2&gt;
+&lt;p&gt;At times you want to perform a test run of a packages installation.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# rpm -ivh --test &amp;lt;package&amp;gt;.rpm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;install-rpm-package-only&quot;&gt;Install rpm package only&lt;/h2&gt;
+&lt;p&gt;To just install a package which does not include upgrading an already
+installed package:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# rpm -ivh kernel-&amp;lt;kernel_version&amp;gt;.&amp;lt;arch&amp;gt;.rpm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The above example is great for when upgrading kernels. Best practice is to
+install the second kernel along side the existing kernel in case there are
+issues with installing the new kernel. With both installed, it makes it easy
+to rollback the changes.&lt;/p&gt;
+&lt;h2 id=&quot;install-an-old-rpm-package&quot;&gt;Install an old rpm package&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# rpm -ivh --oldpackage kernel-&amp;lt;kernel_version&amp;gt;.&amp;lt;arch&amp;gt;.rpm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;installupgrade-rpm-package&quot;&gt;Install/Upgrade rpm package&lt;/h2&gt;
+&lt;p&gt;To upgrade/install a package, log in as root and type the following command at
+a shell prompt:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# rpm -Uvh foo-1.0-1.i386.rpm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;uninstall-rpm-package&quot;&gt;Uninstall rpm package&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# rpm -e &amp;lt;package&amp;gt;.rpm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;reinstall-rpm-package&quot;&gt;Reinstall rpm package&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# rpm -iv --replacepkgs &amp;lt;package&amp;gt;.rpm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;list-config-files-of-package&quot;&gt;List config files of package&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# rpm -q --configfiles &amp;lt;package&amp;gt;.rpm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;list-contents-of-an-uninstalled-rpm&quot;&gt;List contents of an uninstalled rpm&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# rpm -qpl &amp;lt;rpm&amp;gt;.rpm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Viewing the contents of an uninstalled package may be useful when building your own rpms with &lt;code class=&quot;language-text&quot;&gt;rpmbuild&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;check-if-config-files-have-been-modified-from-the-default&quot;&gt;Check if config files have been modified from the default&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# rpm -V &amp;lt;package&amp;gt;.rpm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;modify-the-output-of-rpm-using-queryformat-parameters&quot;&gt;Modify the output of rpm using queryformat parameters&lt;/h2&gt;
+&lt;p&gt;Query formats are modified versions of printf. The format is made up of static strings of allowed tag surrounded by %{}.&lt;/p&gt;
+&lt;h3 id=&quot;view-available-tags&quot;&gt;View available tags&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# rpm --querytags&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;print-only-the-name-of-pakcages&quot;&gt;Print only the name of pakcages&lt;/h3&gt;
+&lt;p&gt;Print only the names of the packages queried, you could use %{NAME} as the format string.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# rpm -qa --qf &amp;quot;%{NAME}\n&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Referenced commands:&lt;/em&gt; &lt;a href=&quot;/wiki/rpmbuild&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;rpmbuild&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[rpmbuild]]></title><description><![CDATA[Summary To build an rpm, the following packages need to be installed: Once the packages are installed: The above command will create an…]]></description><link>https://promptfu.com/wiki/rpmbuild/</link><guid isPermaLink="false">https://promptfu.com/wiki/rpmbuild/</guid><content:encoded>&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;To build an rpm, the following packages need to be installed:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# yum install rpm-build rpmdevtools libpcap-devel&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Once the packages are installed:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# rpmdev-setuptree&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The above command will create an rpmbuild folder in your home director that will have 5 other directories in it (BUILD,
+RPMS, SOURCES, SPECS, and SRPMS). This is where the rpm building magic will happen.&lt;/p&gt;
+&lt;p&gt;The process to build an rpm is as follows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Download source package&lt;/li&gt;
+&lt;li&gt;Extract the .spec file&lt;/li&gt;
+&lt;li&gt;Put the tared source into the SOURCES folder&lt;/li&gt;
+&lt;li&gt;Put the .spec file in the SPECS folder&lt;/li&gt;
+&lt;li&gt;Then, run the below command:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# rpmbuild -ba &amp;lt;program&amp;gt;.spec&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# rpmbuild --define &amp;quot;_topdir `pwd`&amp;quot; -ba SPECS/project.spec # RHEL5&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If a spec file is not found, it is possible to create one; and luckily, a template can be generated to help with
+getting started.&lt;/p&gt;
+&lt;p&gt;To create a template run the below command:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# rpmdev-newspec &amp;lt;spec file name&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Once you have the spec file created, run the below command to attempt to build
+and fix any errors:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# rpmbuild -ba &amp;lt;spec file name&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id=&quot;building-an-rpm-from-a-src-rpm&quot;&gt;Building an rpm from a src rpm&lt;/h1&gt;
+&lt;p&gt;These are just great… if done correctly.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# yum install rpm-build rpmdevtools libpcap-devel
+# rpmdev-setuptree&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The above will need to be complete first, but then…&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# rpmbuild --rebuild &amp;lt;package&amp;gt;.src.rpm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The above will create an RPM located in the rpmbuild folder for you to install! To install the rpm package, use the
+&lt;code class=&quot;language-text&quot;&gt;rpm&lt;/code&gt; command.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Other references:&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://fedoraproject.org/wiki/How_to_create_a_GNU_Hello_RPM_package&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;How to create a GNU Hello RPM package&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.redhat.com/archives/rpm-list/2002-February/msg00030.html&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Building Binary RPM Packages from Source RPMs mini-HOWTO&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Referenced commands:&lt;/em&gt; &lt;a href=&quot;/wiki/rpm&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;rpm&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[vmstat]]></title><description><![CDATA[Summary Field Description For Vm Mode (a) procs is the process-related fields are: r: The number of processes waiting for run time. b: The…]]></description><link>https://promptfu.com/wiki/vmstat/</link><guid isPermaLink="false">https://promptfu.com/wiki/vmstat/</guid><content:encoded>&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;     This util is part of the procps package, and can provide lots of useful
+           info when diagnosing performance problems.
+
+          	Heres a sample &lt;span class=&quot;token function&quot;&gt;vmstat&lt;/span&gt; output on a lightly used desktop:
+
+       procs                      memory    swap          io     system  cpu
+     r  b  w   swpd   &lt;span class=&quot;token function&quot;&gt;free&lt;/span&gt;   buff  cache  si  so    bi    bo   &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt;    cs  us  sy &lt;span class=&quot;token function&quot;&gt;id&lt;/span&gt;
+     &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;5416&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;2200&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;1856&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;34612&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;     &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;     &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;140&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;194&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;97&lt;/span&gt;
+
+          	And heres some sample output on a heavily used server:
+
+       procs                      memory    swap          io     system  cpu
+     r  b  w   swpd   &lt;span class=&quot;token function&quot;&gt;free&lt;/span&gt;   buff  cache  si  so    bi    bo   &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt;    cs  us  sy &lt;span class=&quot;token function&quot;&gt;id&lt;/span&gt;
+    &lt;span class=&quot;token number&quot;&gt;16&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;2360&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;264400&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;96672&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;9400&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;     &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;     &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;53&lt;/span&gt;    &lt;span class=&quot;token number&quot;&gt;24&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;96&lt;/span&gt;
+    &lt;span class=&quot;token number&quot;&gt;24&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;2360&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;257284&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;96672&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;9400&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;     &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;     &lt;span class=&quot;token number&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3063&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;17713&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;64&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;36&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;token number&quot;&gt;15&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;2360&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;250024&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;96672&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;9400&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;     &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;     &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3039&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;16811&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;66&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;34&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+
+          	The interesting numbers here are the first one, this is the number of
+    	the process that are on the run queue. This value shows how many process are
+    	ready to be executed, but can not be ran at the moment because other process
+    	need to finish. For lightly loaded systems, this is almost never above &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;-3,
+    	and numbers consistently higher than &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt; indicate the machine is getting
+    	pounded.
+
+          	Other interseting values include the &lt;span class=&quot;token string&quot;&gt;&quot;system&quot;&lt;/span&gt; numbers &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; and cs. The
+    	&lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; value is the number of interupts per second a system is getting. A system
+    	doing a lot of network or disk I/o will have high values here, as interupts
+    	are generated everytime something is &lt;span class=&quot;token builtin class-name&quot;&gt;read&lt;/span&gt; or written to the disk or network.
+
+    	The cs value is the number of context switches per second. A context
+    	switch is when the kernel has to take off of the executable code &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; a program
+    	out of memory, and switch &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; another. It&apos;s actually _way_ &lt;span class=&quot;token function&quot;&gt;more&lt;/span&gt; complicated
+    	than that, but thats the basic idea. Lots of context swithes are bad, since it
+    	takes some fairly large number of cycles to performa a context swithch, so &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;
+    	you are doing lots of them, you are spending all your &lt;span class=&quot;token function&quot;&gt;time&lt;/span&gt; chainging &lt;span class=&quot;token function&quot;&gt;jobs&lt;/span&gt; and
+    	not actually doing any work. I think we can all understand that concept.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;field-description-for-vm-mode&quot;&gt;Field Description For Vm Mode&lt;/h2&gt;
+&lt;h3 id=&quot;a-procs-is-the-process-related-fields-are&quot;&gt;(a) procs is the process-related fields are:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;r: The number of processes waiting for run time.&lt;/li&gt;
+&lt;li&gt;b: The number of processes in uninterruptible sleep.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;b-memory-is-the-memory-related-fields-are&quot;&gt;(b) memory is the memory-related fields are:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;swpd: the amount of virtual memory used.&lt;/li&gt;
+&lt;li&gt;free: the amount of idle memory.&lt;/li&gt;
+&lt;li&gt;buff: the amount of memory used as buffers.&lt;/li&gt;
+&lt;li&gt;cache: the amount of memory used as cache.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;c-swap-is-swap-related-fields-are&quot;&gt;(c) swap is swap-related fields are:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;si: Amount of memory swapped in from disk (/s).&lt;/li&gt;
+&lt;li&gt;so: Amount of memory swapped to disk (/s).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;d-io-is-the-io-related-fields-are&quot;&gt;(d) io is the I/O-related fields are:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;bi: Blocks received from a block device (blocks/s).&lt;/li&gt;
+&lt;li&gt;bo: Blocks sent to a block device (blocks/s).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;e-system-is-the-system-related-fields-are&quot;&gt;(e) system is the system-related fields are:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;in: The number of interrupts per second, including the clock.&lt;/li&gt;
+&lt;li&gt;cs: The number of context switches per second.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;f-cpu-is-the-cpu-related-fields-are&quot;&gt;(f) cpu is the CPU-related fields are:&lt;/h3&gt;
+&lt;p&gt;These are percentages of total CPU time.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;us: Time spent running non-kernel code. (user time, including nice time)&lt;/li&gt;
+&lt;li&gt;sy: Time spent running kernel code. (system time)&lt;/li&gt;
+&lt;li&gt;id: Time spent idle. Prior to Linux 2.5.41, this includes IO-wait time.&lt;/li&gt;
+&lt;li&gt;wa: Time spent waiting for IO. Prior to Linux 2.5.41, shown as zero.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;vmstat&lt;/span&gt; -S M &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Referenced commands:&lt;/em&gt; &lt;a href=&quot;https://www.thomas-krenn.com/en/wiki/Linux_Performance_Measurements_using_vmstat&quot;&gt; Linux Performance Measurements using vmstat &lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[sed]]></title><description><![CDATA[Summary  is a stream editor. A stream editor is used to perform basic text transformations on an input stream (a file or
+input from a pipeline). While in some ways similar to an editor which permits scripted edits (such as ), 
+works by making only one pass over the input(s), and is consequently more efficient. But it is ’s ability to
+filter text in a pipeline which particularly distinguishes it from other types of editors.]]></description><link>https://promptfu.com/wiki/sed/</link><guid isPermaLink="false">https://promptfu.com/wiki/sed/</guid><pubDate>Mon, 02 Nov 2020 14:09:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;sed&lt;/code&gt; is a stream editor. A stream editor is used to perform basic text transformations on an input stream (a file or
+input from a pipeline). While in some ways similar to an editor which permits scripted edits (such as &lt;code class=&quot;language-text&quot;&gt;ed&lt;/code&gt;), &lt;code class=&quot;language-text&quot;&gt;sed&lt;/code&gt;
+works by making only one pass over the input(s), and is consequently more efficient. But it is &lt;code class=&quot;language-text&quot;&gt;sed&lt;/code&gt;’s ability to
+filter text in a pipeline which particularly distinguishes it from other types of editors.&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;h1 id=&quot;usage&quot;&gt;Usage&lt;/h1&gt;
+&lt;h2 id=&quot;delete-a-line-from-file&quot;&gt;Delete a line from file&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;sed&lt;/span&gt; -e &lt;span class=&quot;token string&quot;&gt;&apos;/&amp;lt;pattern&gt;/d&apos;&lt;/span&gt; -i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;input file&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;commenting-or-uncommenting-a-pattern-matched-line&quot;&gt;Commenting or uncommenting a pattern matched line&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;sed&lt;/span&gt; -e &lt;span class=&quot;token string&quot;&gt;&apos;/&amp;lt;pattern&gt;/s/^/#/g&apos;&lt;/span&gt; -i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;input file&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# (to comment out)&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;sed&lt;/span&gt; -e &lt;span class=&quot;token string&quot;&gt;&apos;/&amp;lt;pattern&gt;/s/^#//g&apos;&lt;/span&gt; -i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;input file&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# (to uncomment)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id=&quot;examples&quot;&gt;Examples&lt;/h1&gt;
+&lt;h2 id=&quot;deleting-a-line-from-a-file&quot;&gt;Deleting a line from a file&lt;/h2&gt;
+&lt;p&gt;Below is an &lt;code class=&quot;language-text&quot;&gt;ls&lt;/code&gt; of the test file’s directory and its  file content. The file has four lines, and the third line should
+be removed from the file. This file is very important and may require a rollback. To ensure a backup is made, to ease
+the rollback process, an extra option, &lt;code class=&quot;language-text&quot;&gt;-i&amp;lt;SUFFIX&amp;gt;&lt;/code&gt;, will be utilized. The extra option allows editing the file in
+place, and creates a backup file in case a rollback is required.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;ls&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;test&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;test&lt;/span&gt;
+This is my first line
+This is my second line
+This is my third line - delete me
+This is my last line&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;sed&lt;/span&gt; -e &lt;span class=&quot;token string&quot;&gt;&apos;/delete me/d&apos;&lt;/span&gt; -i.backup &lt;span class=&quot;token builtin class-name&quot;&gt;test&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Below is an &lt;code class=&quot;language-text&quot;&gt;ls&lt;/code&gt; of the test file’s directory and its file content after the line has been removed, and a &lt;code class=&quot;language-text&quot;&gt;diff&lt;/code&gt; of the
+edited and backup file.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;ls&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;test&lt;/span&gt;  test.backup&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;test&lt;/span&gt;
+This is my first line
+This is my second line
+This is my last line&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;diff&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;test&lt;/span&gt; test.backup
+2a3
+&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; This is my third line - delete me&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Referenced commands:&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;cat&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;diff&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;ed&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;ls&lt;/code&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Raspberry Pi: Push-button + Two(2) LEDs that Toggle]]></title><description><![CDATA[This project is about adding an additional LED light to the
+Raspberry Pi: Push-button + One(1) LED post, and having the push-button
+toggle the LED lights. I used one red and one blue LED. The desired result, toggle on/off of the two LEDs with the push of a button; if the red light is on then the blue is
+off, and vice versa.]]></description><link>https://promptfu.com/blog/raspberry-pi-push-button-plus-two-leds-toggle/</link><guid isPermaLink="false">https://promptfu.com/blog/raspberry-pi-push-button-plus-two-leds-toggle/</guid><pubDate>Sun, 26 Apr 2020 21:16:00 GMT</pubDate><content:encoded>&lt;center&gt;Got another simple project here for you!&lt;/center&gt;
+&lt;br /&gt;
+&lt;p&gt;This project is about adding an additional LED light to the
+&lt;a href=&quot;/blog/raspberry-pi-push-button-plus-one-led/&quot;&gt;Raspberry Pi: Push-button + One(1) LED&lt;/a&gt; post, and having the push-button
+toggle the LED lights. I used one red and one blue LED.&lt;/p&gt;
+&lt;p&gt;The desired result, toggle on/off of the two LEDs with the push of a button; if the red light is on then the blue is
+off, and vice versa.&lt;/p&gt;
+&lt;center&gt;Let&apos;s see how this goes...&lt;/center&gt;
+&lt;!--more--&gt;
+&lt;br /&gt;
+&lt;p&gt;With this project, I learned I need to have a better understanding around detecting events with the GPIO. I found myself
+modifying “bouncetime” to achieve the desired result, but it is not optimal.&lt;/p&gt;
+&lt;p&gt;With the code below, there are times when the lights do not toggle or the light remains on.&lt;/p&gt;
+&lt;p&gt;Any ideas what I am doing wrong? Let me know in the comment section below.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;#!/usr/bin/env python&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; RPi&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;GPIO &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; GPIO
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; time
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;on_callback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;channel&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;output&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;channel&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;off_callback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;channel&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;output&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;channel&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;setmode&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;BCM&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+RED_LED &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;25&lt;/span&gt;
+BLUE_LED &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;24&lt;/span&gt;
+SWITCH_IN &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;
+GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;setup&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;SWITCH_IN&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;IN&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; pull_up_down&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;PUD_DOWN&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;setup&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;RED_LED&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;OUT&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; initial&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;LOW&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;setup&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;BLUE_LED&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;OUT&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; initial&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;LOW&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;add_event_detect&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;SWITCH_IN&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;RISING&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; bouncetime&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;900&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+
+led &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; BLUE_LED
+nled &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; RED_LED
+run &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;run &lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;event_detected&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; led
+            led &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; BLUE_LED &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;led &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; RED_LED&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; RED_LED
+            nled &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; RED_LED &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;nled &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; BLUE_LED&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; BLUE_LED
+
+            on_callback&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;led&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            off_callback&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;nled&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;token keyword&quot;&gt;pass&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;except&lt;/span&gt; KeyboardInterrupt&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        run &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+        GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cleanup&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;KeyboardInterrupt caught&apos;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;
+GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cleanup&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;EXITED!&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Also available here, &lt;a href=&quot;https://github.com/xpros/raspberry-pi-examples/blob/master/raspi-push-button-led-toggle/raspi-push-button-led-toggle.py&quot;&gt;raspi-push-button-led-toggle&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.42857142857143%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;div class=&quot;embedVideo-container&quot;&gt; &lt;iframe src=&quot;https://www.youtube.com/embed/kNPYPkmSMdI?rel=0&quot; class=&quot;embedVideo-iframe&quot; style=&quot;border:0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot; allowfullscreen&gt;&lt;/iframe&gt; &lt;/div&gt; &lt;/div&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Raspberry Pi: Push-button + One(1) LED]]></title><description><![CDATA[This was my first attempt at getting a push-button to turn on an LED light with my Raspberry Pi w/Pi Cobbler setup. I had
+a lot of fun putting the bits and pieces together, and I hope you enjoy reading about it!]]></description><link>https://promptfu.com/blog/raspberry-pi-push-button-plus-one-led/</link><guid isPermaLink="false">https://promptfu.com/blog/raspberry-pi-push-button-plus-one-led/</guid><pubDate>Sun, 26 Apr 2020 18:16:00 GMT</pubDate><content:encoded>&lt;p&gt;This was my first attempt at getting a push-button to turn on an LED light with my Raspberry Pi w/Pi Cobbler setup.&lt;/p&gt;
+&lt;p&gt;I had
+a lot of fun putting the bits and pieces together, and I hope you enjoy reading about it!&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;p&gt;I did a lot of Google searching to find a good example (&lt;a href=&quot;http://raspberry.io/projects/view/reading-and-writing-from-gpio-ports-from-python/&quot; title=&quot;Reading and writing from GPIO ports from Python&quot;&gt;Reading and writing from GPIO ports from Python&lt;/a&gt;).
+I followed the instructions to help with the wiring and used interactive python to test the wiring setup. The one
+problem with the tutorial is that the python is missing a few bits. When creating the python function, &lt;code class=&quot;language-text&quot;&gt;my_callback()&lt;/code&gt;.
+The function is missing the ever so important &lt;code class=&quot;language-text&quot;&gt;my_callback(self)&lt;/code&gt;. Feel free to check out my code later on in this post.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Note:&lt;/em&gt;&lt;/strong&gt; Never use the 5v power coming off the Raspberry Pi Cobbler for an input back to the Cobbler. The Pi is only designed to
+accept 3.3v of power. I used pins 25 and 4. Pin 4 is used for the input for when the button is pressed,
+and 25 is used to provide the LED with power.&lt;/p&gt;
+&lt;p&gt;The code below is very CPU intensive because of the while loop. There is such a thing as &lt;code class=&quot;language-text&quot;&gt;GPIO.wait_for_edge(CHANNEL)&lt;/code&gt;, but
+if you add an event, such as I did with &lt;code class=&quot;language-text&quot;&gt;GPIO.add_event_detect(CHANNEL, GPIO.BOTH, callback=my_callback)&lt;/code&gt;, the script
+will not run because it does not like both of those methods being used together.&lt;/p&gt;
+&lt;p&gt;To decrease the amount of CPU usage, linux has a &lt;code class=&quot;language-text&quot;&gt;nice&lt;/code&gt; command that you can set the priority of the script. For example,
+&lt;code class=&quot;language-text&quot;&gt;nice 18 ./raspi-push-button.py&lt;/code&gt; will run the script at a run priority of 18. Run priority levels are from -20 to 19.
+The lower the nice value means the higher priority; so -20 is the highest priority, and positive 19 is the lowest run priority.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;#!/usr/bin/env python&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; RPi&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;GPIO &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; GPIO
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;my_callback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;output&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;setmode&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;BCM&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;setup&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;IN&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; pull_up_down&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;PUD_DOWN&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;setup&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;OUT&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; initial&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;LOW&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;add_event_detect&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;BOTH&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; callback&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;my_callback&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+run &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;run &lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;pass&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;except&lt;/span&gt; KeyboardInterrupt&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        run &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+        GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cleanup&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;KeyboardInterrupt caught&apos;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;
+GPIO&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cleanup&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;EXITED!&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Also available here, &lt;a href=&quot;https://github.com/xpros/raspberry-pi-examples/blob/master/raspi-push-button/raspi-push-button.py&quot;&gt;raspi-push-button&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.42857142857143%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;div class=&quot;embedVideo-container&quot;&gt; &lt;iframe src=&quot;https://www.youtube.com/embed/VQKLXp-1IQU?rel=0&quot; class=&quot;embedVideo-iframe&quot; style=&quot;border:0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot; allowfullscreen&gt;&lt;/iframe&gt; &lt;/div&gt; &lt;/div&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[grep]]></title><description><![CDATA[The  command searches the given file for lines containing a match to the given strings or words. As an example, search ‘./package.json‘ for…]]></description><link>https://promptfu.com/wiki/grep/</link><guid isPermaLink="false">https://promptfu.com/wiki/grep/</guid><pubDate>Tue, 27 Aug 2019 17:01:00 GMT</pubDate><content:encoded>&lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;grep&lt;/code&gt; command searches the given file for lines containing a match to the given strings or words. As an example, search ‘./package.json‘ for ‘gatsby-plugin-twitter‘:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ &lt;span class=&quot;token builtin class-name&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;GREP_COLOR&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;1;37;41&apos;&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; --color&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;auto&apos;&lt;/span&gt; gatsby-plugin-twitter package.json
+    &lt;span class=&quot;token string&quot;&gt;&quot;gatsby-plugin-twitter&quot;&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;^2.1.2&quot;&lt;/span&gt;,&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To search through all the files and directories for a given string such as ‘gatsby-plugin-twitter’, pass the &lt;code class=&quot;language-text&quot;&gt;-r&lt;/code&gt; (or &lt;code class=&quot;language-text&quot;&gt;--recursive&lt;/code&gt;) flag:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ &lt;span class=&quot;token builtin class-name&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;GREP_COLOR&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;1;37;41&apos;&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; -r --color&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;auto&apos;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;gatsby-plugin-twitter&apos;&lt;/span&gt; /tmp
+/tmp/package.json:    &lt;span class=&quot;token string&quot;&gt;&quot;gatsby-plugin-twitter&quot;&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;^2.1.2&quot;&lt;/span&gt;,&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[stress]]></title><description><![CDATA[I cannot  it enough… use this utility! It is really convenient for, well…, stressing a system. The utility
+has several commandline arguments to target various components. For example, if you would like to use up a whole mess of RAM:]]></description><link>https://promptfu.com/wiki/stress/</link><guid isPermaLink="false">https://promptfu.com/wiki/stress/</guid><pubDate>Tue, 27 Aug 2019 17:01:00 GMT</pubDate><content:encoded>&lt;p&gt;I cannot &lt;code class=&quot;language-text&quot;&gt;stress&lt;/code&gt; it enough… use this utility! It is really convenient for, well…, stressing a system. The utility
+has several commandline arguments to target various components.&lt;/p&gt;
+&lt;p&gt;For example, if you would like to use up a whole mess of RAM:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ stress -m &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; --vm-bytes 50G --vm-keep&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;!--more--&gt;</content:encoded></item><item><title><![CDATA[xargs]]></title><description><![CDATA[is a pretty cool command. Lets say you have a sweet one-liner that returns a list of files you want to do
+something with; for example, like coping files from one directory to another. You can do this with just  by itself, I am sure, but I would
+rather be safe and pipe to my hearts desires until I get exactly what I want. In this case, and with , you can
+do just that…]]></description><link>https://promptfu.com/wiki/xargs/</link><guid isPermaLink="false">https://promptfu.com/wiki/xargs/</guid><pubDate>Tue, 27 Aug 2019 17:01:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;xargs&lt;/code&gt; is a pretty cool command. Lets say you have a sweet one-liner that returns a list of files you want to do
+something with; for example, like coping files from one directory to another. You can do this with just &lt;code class=&quot;language-text&quot;&gt;cp&lt;/code&gt; by itself, I am sure, but I would
+rather be safe and pipe to my hearts desires until I get exactly what I want. In this case, and with &lt;code class=&quot;language-text&quot;&gt;xargs&lt;/code&gt;, you can
+do just that…&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;h1 id=&quot;usage&quot;&gt;Usage&lt;/h1&gt;
+&lt;p&gt;Let me explain the usage example below as it was my first experience using &lt;code class=&quot;language-text&quot;&gt;xargs&lt;/code&gt;. I wanted to put together a kernel
+upgrade package, and I wanted to pull all the kernel files for a specific version into a central location so I could
+work from there and not mess with anything in my repo. The below command was used to &lt;code class=&quot;language-text&quot;&gt;grep&lt;/code&gt; for the files I wanted:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;2.6.32-358.23&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; -v &lt;span class=&quot;token string&quot;&gt;&apos;python&apos;&lt;/span&gt;
+kernel-2.6.32-358.23.2.el6.x86_64.rpm
+kernel-debug-2.6.32-358.23.2.el6.x86_64.rpm
+kernel-debug-devel-2.6.32-358.23.2.el6.x86_64.rpm
+kernel-devel-2.6.32-358.23.2.el6.x86_64.rpm
+kernel-firmware-2.6.32-358.23.2.el6.noarch.rpm
+kernel-headers-2.6.32-358.23.2.el6.x86_64.rpm
+perf-2.6.32-358.23.2.el6.x86_64.rpm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Yeah, yeah… not extremely sophisticated; I am sure many know how to &lt;code class=&quot;language-text&quot;&gt;grep&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;-v grep&lt;/code&gt;. At this point I was
+like, great… I have my list of files, and now I want to copy them somewhere so I can begin to work with them safely
+separated from my repo.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;xargs&lt;/code&gt; command can be used to run a command from standard input. To copy the list of files above to the &lt;code class=&quot;language-text&quot;&gt;/tmp&lt;/code&gt;
+directory:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;2.6.32-358.23&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; -v &lt;span class=&quot;token string&quot;&gt;&apos;python&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;xargs&lt;/span&gt; -I -t &lt;span class=&quot;token function&quot;&gt;cp&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; /tmp
+&lt;span class=&quot;token function&quot;&gt;cp&lt;/span&gt; kernel-2.6.32-358.23.2.el6.x86_64.rpm /tmp
+&lt;span class=&quot;token function&quot;&gt;cp&lt;/span&gt; kernel-debug-2.6.32-358.23.2.el6.x86_64.rpm /tmp
+&lt;span class=&quot;token function&quot;&gt;cp&lt;/span&gt; kernel-debug-devel-2.6.32-358.23.2.el6.x86_64.rpm /tmp
+&lt;span class=&quot;token function&quot;&gt;cp&lt;/span&gt; kernel-devel-2.6.32-358.23.2.el6.x86_64.rpm /tmp
+&lt;span class=&quot;token function&quot;&gt;cp&lt;/span&gt; kernel-firmware-2.6.32-358.23.2.el6.noarch.rpm /tmp
+&lt;span class=&quot;token function&quot;&gt;cp&lt;/span&gt; kernel-headers-2.6.32-358.23.2.el6.x86_64.rpm /tmp
+&lt;span class=&quot;token function&quot;&gt;cp&lt;/span&gt; perf-2.6.32-358.23.2.el6.x86_64.rpm /tmp&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Lets talk about the &lt;code class=&quot;language-text&quot;&gt;-I&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;-t&lt;/code&gt; option briefly passed as arguments above…&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;-I&lt;/code&gt; option by default replaces &lt;code class=&quot;language-text&quot;&gt;{}&lt;/code&gt; with the output, one line at a time, in its place, and the &lt;code class=&quot;language-text&quot;&gt;-t&lt;/code&gt; option prints
+the output rather than executing the command.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ls of temp&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;ls&lt;/span&gt; /tmp &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;2.6.32-358.23&apos;&lt;/span&gt;
+kernel-2.6.32-358.23.2.el6.x86_64.rpm
+kernel-debug-2.6.32-358.23.2.el6.x86_64.rpm
+kernel-debug-devel-2.6.32-358.23.2.el6.x86_64.rpm
+kernel-devel-2.6.32-358.23.2.el6.x86_64.rpm
+kernel-firmware-2.6.32-358.23.2.el6.noarch.rpm
+kernel-headers-2.6.32-358.23.2.el6.x86_64.rpm
+perf-2.6.32-358.23.2.el6.x86_64.rpm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Referenced commands:&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;cp&lt;/code&gt;, &lt;a href=&quot;/wiki/grep&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;grep&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[How Windows is Useful: Enabling Windows Subsystem for Linux]]></title><description><![CDATA[It ‘twas the morning of July 18, 2019 as I was working on this site; just polishing up a few tidbits,
+when my 2012 Macbook Pro became quite warm and decided to poweroff, never to return again. About 30 minutes had past
+while I aimlessly troubleshot, but ultimately I found myself on Apple’s support site scheduling an appointment to have my laptop serviced.]]></description><link>https://promptfu.com/blog/windows-subsystem-for-linux/</link><guid isPermaLink="false">https://promptfu.com/blog/windows-subsystem-for-linux/</guid><pubDate>Thu, 22 Aug 2019 19:00:00 GMT</pubDate><content:encoded>&lt;p&gt;It ‘twas the morning of July 18, 2019 as I was working on this site; just polishing up a few tidbits,
+when my 2012 Macbook Pro became quite warm and decided to poweroff, never to return again. About 30 minutes had past
+while I aimlessly troubleshot, but ultimately I found myself on Apple’s support site scheduling an appointment to have my laptop serviced.&lt;/p&gt;
+&lt;!--more--&gt;
+&lt;p&gt;My initial thought after setting up my appointment:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Que sera sera! I get a little vacation from technology, wonderful!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It was soon after that thought that another had occured to me; &lt;span&gt;😁&lt;/span&gt; which came as quite a surprise &lt;span&gt;😁&lt;/span&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;What if I come up with an amazing, life altering, idea that required the use of my most familiar working
+enivironment - a terminal (iterm2) and my precious dotfiles (nothing too crazy), git, vim, and maybe a few others.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It was the very next moment when I found myself gazing across the room towards my desk, taking notice to my Windows 10 desktop. The
+desktop was not used often so it only had a modest amount of dust on it, but its initial and main purpose is to serve
+as a decent gaming rig; now (&lt;strong&gt;NOW…&lt;/strong&gt;) though, it had to elevate its purpose to new heights.&lt;/p&gt;
+&lt;p&gt;But wait… its Windows 10, and I favor a Unix-like terminal environment with vim and bash; while this dusty machine could offer me…
+what? Notepad and PowerShell.&lt;/p&gt;
+&lt;p&gt;Oh, but wait… I remember some mentions from a couple years back of Windows 10 offering an embedded Ubuntu Linux; perhaps
+there is some saving grace after all.&lt;/p&gt;
+&lt;p&gt;Thus, my journey begun… and here within this blog, I will detail my findings in hopes that it may bring another
+hope in a similar time of need.&lt;/p&gt;
+&lt;h1 id=&quot;enabling-windows-subsystem-for-linux&quot;&gt;Enabling Windows Subsystem for Linux&lt;/h1&gt;
+&lt;h2 id=&quot;install-the-windows-subsystem-for-linux&quot;&gt;Install the Windows Subsystem for Linux&lt;/h2&gt;
+&lt;p&gt;Open PowerShell as an Administrator and run:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;powershell&quot;&gt;&lt;pre class=&quot;language-powershell&quot;&gt;&lt;code class=&quot;language-powershell&quot;&gt;&lt;span class=&quot;token function&quot;&gt;PS&lt;/span&gt; C:\WINDOWS\system32&gt; &lt;span class=&quot;token function&quot;&gt;Enable-WindowsOptionalFeature&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;Online &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;FeatureName Microsoft&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;Windows&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;Subsystem&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;Linux&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Restart your computer when prompted.&lt;/p&gt;
+&lt;h2 id=&quot;install-your-linux-distribution-of-choice&quot;&gt;Install your Linux Distribution of Choice&lt;/h2&gt;
+&lt;p&gt;There are a few choices for installing Linux on your Windows 10 machine:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Download and install from the Microsoft Store&lt;/li&gt;
+&lt;li&gt;Download and install from the Command-Line/Script&lt;/li&gt;
+&lt;li&gt;Download and manually unpack and install (for Windows Server)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I chose the first option - Download and install from the Microsoft Store.&lt;/p&gt;
+&lt;p&gt;The list of distributions available to install was quite surprising; to name a few - SUSE, Debian, and Kali Linux
+were among others on the list. For the task at hand, I decided to install Ubuntu 18.04 LTS.&lt;/p&gt;
+&lt;h2 id=&quot;install-ubuntu-1804-lts-bionic-from-the-microsoft-store&quot;&gt;Install Ubuntu 18.04 LTS (Bionic) from the Microsoft Store&lt;/h2&gt;
+&lt;p&gt;Opening the Microsoft Store, searching for “Ubuntu”, and selecting “Install” was the minimal effort I needed to put in
+to begin the download and install process.&lt;/p&gt;
+&lt;p&gt;Once the install completed, the option to “Launch” was available and I did what came naturally next - I clicked “Launch”.&lt;/p&gt;
+&lt;p&gt;A seemingly familiar black backgrounded terminal appeared on my screen:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;Installing, this may take a few minutes&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.
+Please create a default UNIX user account. The username does not need to match your Windows username.
+For &lt;span class=&quot;token function&quot;&gt;more&lt;/span&gt; information visit: https://aka.ms/wslusers
+Enter new UNIX username: mhassel
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+Installation successful&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;
+To run a &lt;span class=&quot;token builtin class-name&quot;&gt;command&lt;/span&gt; as administrator &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;user &lt;span class=&quot;token string&quot;&gt;&quot;root&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;, use &lt;span class=&quot;token string&quot;&gt;&quot;sudo &amp;lt;command&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt;
+See &lt;span class=&quot;token string&quot;&gt;&quot;man sudo_root&quot;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; details.
+
+mhassel@DESKTOP-AZU893B:~$
+mhassel@DESKTOP-AZU893B:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu &lt;span class=&quot;token number&quot;&gt;18.04&lt;/span&gt;.2 LTS
+Release:        &lt;span class=&quot;token number&quot;&gt;18.04&lt;/span&gt;
+Codename:       bionic&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ah’mazing! Ubuntu running on Windows 10! BTW… the Ubuntu terminal window has opacity built-in; I like to rock it at 80%.&lt;/p&gt;
+&lt;p&gt;After making sure I was on the latest and greatest:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt&lt;/span&gt; update &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt&lt;/span&gt; upgrade&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;center&gt;&lt;strong&gt;I was back!&lt;/strong&gt;&lt;/center&gt;
+&lt;br /&gt;
+&lt;p&gt;I was finally up and running; and just needed to apply my dotfiles, and install nvm and a few other tools. I could head
+back to the couch, no longer worried that I may miss out on pursuing the most amazing idea if it
+would come to me.&lt;/p&gt;
+&lt;center&gt;&lt;i&gt;And then Matthew stood up, walked to his desktop, and began writing this post...&lt;/i&gt;&lt;/center&gt;
+&lt;br /&gt;
+&lt;p&gt;&lt;small&gt;&lt;em&gt;Reference: &lt;a href=&quot;https://docs.microsoft.com/en-us/windows/wsl/install-win10&quot;&gt; Windows Subsystem for Linux Installation Guide for Windows 10 &lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Hello, World]]></title><link>https://promptfu.com/blog/hello-world/</link><guid isPermaLink="false">https://promptfu.com/blog/hello-world/</guid><pubDate>Thu, 22 Aug 2019 18:00:00 GMT</pubDate><content:encoded>&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Bash&lt;/span&gt;
+$ &lt;span class=&quot;token assign-left variable&quot;&gt;WORLD&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;World&apos;&lt;/span&gt;
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Hello, &lt;span class=&quot;token variable&quot;&gt;${WORLD}&lt;/span&gt;&quot;&lt;/span&gt;
+Hello, World&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br /&gt;
+&lt;center&gt;&lt;code class=&quot;language-text&quot;&gt;This&lt;/code&gt; is officially the first post! How &lt;b&gt;exciting&lt;/b&gt;!&lt;/center&gt;
+&lt;center&gt;Let me start things off by describing the idea behind the creation of Prompt Fu.&lt;/center&gt;
+&lt;!--more--&gt;
+&lt;br /&gt;
+&lt;p&gt;We all have spent a vast number of minutes, hours, years, etc. researching various topics in search of a solution to
+whatever problem we had come across at any given time.&lt;/p&gt;
+&lt;p&gt;We may find a solution and complete the project, and update its documentation; other times, we may jot down a note and
+store it some place safe (where did I place my notepad again…), or we may simply forget it and move onto whatever
+else needing attention. I am guilty of the latter, the latter latter, and on occation, the latter latter latter.&lt;/p&gt;
+&lt;p&gt;Prompt Fu provides a simple interface, the Markdown lanugage, to share my thoughts and work, and it is OPEN.&lt;/p&gt;
+&lt;p&gt;Given that open source has been such a huge catalyst in the world of technology and vastly helpul thorughout my career;
+Prompt Fu offers, for starters, my notes, blogs, wikis, projects, etc. as I continually develop throughout my career and life.&lt;/p&gt;
+&lt;p&gt;As I, and maybe someday others, share, the opportunity for you to contribute and share your thoughts is available and
+encouraged! Each blog and wiki should have a comments section found at the bottom of the page. Please, feel free to
+comment suggesting edits, start discussions, or to let me know the post helped you in your search.&lt;/p&gt;
+&lt;p&gt;Additionally, wiki posts have an ”&lt;em&gt;improve this post&lt;/em&gt;” link which will take you directly to GitHub so you can fork, edit,
+and pull request to contribute.&lt;/p&gt;
+&lt;p&gt;With that said, more interesting posts are coming so be sure to check back soon; also be sure to check out the various
+wikis that include tech tips and command line fu that I have found useful in my everyday - &lt;a href=&quot;https://www.promptfu.com/wiki&quot;&gt;Wiki&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In an attempt to leave you inpired, here are 10 quotes about technology that I thought had a certain &lt;em&gt;je ne sais quoi&lt;/em&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Technology is a word that describes something that doesn’t work yet.
+&lt;cite&gt;— Douglas Adams&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Just because something doesn’t do what you planned it to do doesn’t mean it’s useless.
+&lt;cite&gt;— Thomas Edison&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;One machine can do the work of fifty ordinary men. No machine can do the work of one extraordinary man.
+&lt;cite&gt;— Elbert Hubbard&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Communications tools don’t get socially interesting until they get technologically boring.
+&lt;cite&gt;— Clay Shirky&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Technology is the campfire around which we tell our stories.
+&lt;cite&gt;— Laurie Anderson&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hardware: the parts of a computer that can be kicked.
+&lt;cite&gt;— Jeff Pesis&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Getting information off the Internet is like taking a drink from a fire hydrant.
+&lt;cite&gt;— Mitchell Kapor&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Technology is unlocking the innate compassion we have for our fellow human beings.&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;— Bill Gates&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Technology is nothing. What’s important is that you have a faith in people, that they’re basically good and smart, and if you give them tools, they’ll do wonderful things with them.
+&lt;cite&gt;— Steve Jobs&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In open source, we feel strongly that to really do something well, you have to get a lot of people involved.
+&lt;cite&gt;— Linus Torvalds&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content:encoded></item></channel></rss>
